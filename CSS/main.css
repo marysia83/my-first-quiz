@@ -1,0 +1,30 @@
+
+
+.container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2px;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .flex-center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+  
+  .hidden {
+    display: none;
+  }
