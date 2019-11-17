@@ -60,8 +60,10 @@ function startQuiz() {
     questionsCounter = 0;
     score = 0;
     availableQuestions = [ ...questions];
+    console.log(availableQuestions);
     getNewQuestion();
 }; //end of startQuiz
+
 
 function getNewQuestion() {
     questionsCounter++;
@@ -70,14 +72,21 @@ function getNewQuestion() {
     question.innerText = currentQuestion.question; 
     //assigns currentQuestion to the #question in html doc
 
-    choices.forEach(myFunction);
-
-    function myFunction(choice) {
-        var number = choice.dataset["number"];
-        choice.innerText = currentQuestion["choice" + number];
-    }; 
+   
+//forEach: currentValue: value of current element (required)
+//forEach: index: array index of the current element (optional)
+//forEach: arr: array object the current element belongs to (optional)
+//forEach: thisValue: value  to be passed to the function as its "this" value (optional)
+//Array.from(blaBla): makes an array from HTML
+    Array.from(choices).forEach(function (choice) {
+        number = choice.dataset["number"], //gets access to the data number attributes
+        choice.innerText = currentQuestion["choice" + number]
+    });
+    
 
 }; //end of getNewQuestion
+
+startQuiz();
 
 
 
