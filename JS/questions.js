@@ -72,15 +72,19 @@ function getNewQuestion() {
     question.innerText = currentQuestion.question; 
     //assigns currentQuestion to the #question in html doc
 
-   
+   //below: for each CurrentQuestion we want the applicable choice:
+
 //forEach: currentValue: value of current element (required)
 //forEach: index: array index of the current element (optional)
 //forEach: arr: array object the current element belongs to (optional)
 //forEach: thisValue: value  to be passed to the function as its "this" value (optional)
 //Array.from(blaBla): makes an array from HTML
-    Array.from(choices).forEach(function (choice) {
-        number = choice.dataset["number"], //gets access to the data number attributes
-        choice.innerText = currentQuestion["choice" + number]
+
+    Array.from(choices).forEach(function (choice) { //choice is the current value
+        number = choice.dataset["number"], //gets access to the data number attributes - this is the number for each choice
+        choice.innerText = currentQuestion["choice" + number] //from the current question we want that choice number
+        //so for each currentQuestion we grab the dataset number for the choices and replace the text with 
+        //the question's choices. Reminder: .choice-text in html = var choices
     });
     
 
