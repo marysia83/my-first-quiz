@@ -24,10 +24,11 @@
 .home {
     text-align: center;
     margin-top: 7%; 
+    margin-bottom: 10%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn {
+.button {
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
 }
