@@ -7,8 +7,8 @@ var choices = document.getElementsByClassName("choice-text");
 //current question variable will be an object (in {})
 var currentQuestion = {};
 
-//var for accepting answers
-var acceptingAnswers = true;
+//var for accepting answers; set to false, so they don't answer until it's loaded
+var acceptingAnswers = false;
 
 var score = 0;
 
@@ -20,7 +20,7 @@ var availableQuestions = [];
 
 var questions = [
     {
-        question: "What is Marysia's eve color?",
+        question: "What is Marysia's eyes color?",
         choice1: "Green",
         choice2: "Blue",
         choice3: "Purple",
@@ -66,6 +66,12 @@ function startQuiz() {
 
 
 function getNewQuestion() {
+
+    //we need this so that when the user completes all the questions, they will be directed to the finish/score page
+    if (availableQuestions.length === 0 || questionsCounter >= maxQuestions) {
+        return window.location.assign("/finish.html")
+    }
+
     questionsCounter++;
     var questionIndex = Math.floor(Math.random() * availableQuestions.length); //this is for the app to get a question from the available questions
     currentQuestion = availableQuestions[questionIndex]; //chooses which question
@@ -87,8 +93,29 @@ function getNewQuestion() {
         //the question's choices. Reminder: .choice-text in html = var choices
     });
     
+//we need to "remove" the questions that were used, so the user does not get the question already used
+//questionIndex = where do we want to splice
+    availableQuestions.splice(questionIndex, 1);
+
+    acceptingAnswers = true;
 
 }; //end of getNewQuestion
+
+
+//below is to add event for the user to click. Once they click, we collect their answer
+Array.from(choices).forEach(function (choice) {
+    choice.addEventListener("click", function(e) { //which choice they clicked
+        console.log(e.target); //this will log what choice the user clicked
+        if (!acceptingAnswers) return; //if we are not ready to accept user's answer, we will return (ignore the fact they clicked)
+
+        acceptingAnswers = false; //we want to have a bit of delay
+        var selectedChoice = e.target;
+        var selectedAnswer = selectedChoice.dataset["number"];
+        console.log(selectedAnswer);
+        getNewQuestion(); //after they selected their answer, we give new question
+    })
+
+}); //end of choices.forEach
 
 startQuiz();
 

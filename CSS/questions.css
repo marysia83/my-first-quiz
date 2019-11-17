@@ -3,12 +3,14 @@
 }
 
 .choice-container {
-    display: flex;
-    margin-bottom: 5px;
-    width: 100%;
-    font-size: 15px;
-    border: 5px solid #f5c3fa;
+    display: flex; 
+    width: 30%;
+    font-size: 16px;
+    border: 4px solid #f5c3fa;
     background-color: white;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-bottom: 15px;
 }
 
 .choice-container:hover {
@@ -21,3 +23,8 @@
     background-color: #91169c;
     color: white;
 }
+
+.choice-text {
+    width: 100%;
+    text-align: left;
+} 
