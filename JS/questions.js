@@ -64,8 +64,20 @@ function startQuiz() {
 }; //end of startQuiz
 
 function getNewQuestion() {
-    
-}
+    questionsCounter++;
+    var questionIndex = Math.floor(Math.random() * availableQuestions.length); //this is for the app to get a question from the available questions
+    currentQuestion = availableQuestions[questionIndex]; //chooses which question
+    question.innerText = currentQuestion.question; 
+    //assigns currentQuestion to the #question in html doc
+
+    choices.forEach(myFunction);
+
+    function myFunction(choice) {
+        var number = choice.dataset["number"];
+        choice.innerText = currentQuestion["choice" + number];
+    }; 
+
+}; //end of getNewQuestion
 
 
 
