@@ -51,4 +51,23 @@ var questions = [
         choice4: "France",
         answer: 2
     }
-]
+];
+
+var correctPoints = 10;
+var maxQuestions = 4;
+
+function startQuiz() {
+    questionsCounter = 0;
+    score = 0;
+    availableQuestions = [ ...questions];
+    getNewQuestion();
+}; //end of startQuiz
+
+function getNewQuestion() {
+    
+}
+
+
+
+
+
