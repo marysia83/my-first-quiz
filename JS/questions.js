@@ -121,16 +121,14 @@ Array.from(choices).forEach(function (choice) {
         
             //we want to apply this correct/incorrect class to the html (to the whole clicked button/container element) 
         selectedChoice.parentElement.classList.add(classToApply); //add the color red/green to incorrect/correct
-        //we need some delay, otherwise the changed colors will not show
-        function setTimeout() {
+        //we need some delay for the colors to show correctly
+        setTimeout(function() {
         selectedChoice.parentElement.classList.remove(classToApply); //we need this to remove the color, otherwise the collor will keep showing
-        }, 1000
+        getNewQuestion(); //after they selected their answer, we give new question
+        }, 1000); //1,000 milisconds
 
         
-            
-
-        getNewQuestion(); //after they selected their answer, we give new question
-    });
+    }); //end of choice.addEventListener
 
 }); //end of choices.forEach
 
