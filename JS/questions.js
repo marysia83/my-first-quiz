@@ -60,7 +60,7 @@ function startQuiz() {
     questionsCounter = 0;
     score = 0;
     availableQuestions = [ ...questions];
-    console.log(availableQuestions);
+    console.log(availableQuestions); //test
     getNewQuestion();
 }; //end of startQuiz
 
@@ -78,7 +78,7 @@ function getNewQuestion() {
     question.innerText = currentQuestion.question; 
     //assigns currentQuestion to the #question in html doc
 
-   //below: for each CurrentQuestion we want the applicable choice:
+   //below: for each CurrentQuestion we want the applicable choice to be shown:
 
 //forEach: currentValue: value of current element (required)
 //forEach: index: array index of the current element (optional)
@@ -111,9 +111,26 @@ Array.from(choices).forEach(function (choice) {
         acceptingAnswers = false; //we want to have a bit of delay
         var selectedChoice = e.target;
         var selectedAnswer = selectedChoice.dataset["number"];
-        console.log(selectedAnswer);
+        // console.log(selectedAnswer == currentQuestion.answer); //to check if the selected answer was correct (true) or incorrect (false)
+
+        var classToApply = "incorrect"; //set the default to incorrec, then check if it is correct, and then update it to correct
+            if (selectedAnswer == currentQuestion.answer) {
+                classToApply = "correct"
+                console.log(classToApply);
+            }
+        
+            //we want to apply this correct/incorrect class to the html (to the whole clicked button/container element) 
+        selectedChoice.parentElement.classList.add(classToApply); //add the color red/green to incorrect/correct
+        //we need some delay, otherwise the changed colors will not show
+        function setTimeout() {
+        selectedChoice.parentElement.classList.remove(classToApply); //we need this to remove the color, otherwise the collor will keep showing
+        }, 1000
+
+        
+            
+
         getNewQuestion(); //after they selected their answer, we give new question
-    })
+    });
 
 }); //end of choices.forEach
 

@@ -28,3 +28,11 @@
     width: 100%;
     text-align: left;
 } 
+
+.correct {
+    background-color: rgb(12, 131, 12);
+}
+
+.incorrect {
+    background-color: rgb(177, 31, 31);
+}
