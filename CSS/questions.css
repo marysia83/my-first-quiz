@@ -36,3 +36,12 @@
 .incorrect {
     background-color: rgb(238, 115, 115);
 }
+
+#hud {
+    display: flex;
+    justify-content: space-around;
+}
+
+.hud-prefix {
+    text-align: center;
+}

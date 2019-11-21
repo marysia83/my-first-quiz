@@ -4,6 +4,12 @@ var question = document.getElementById("question");
 //get a reference to the choices:
 var choices = document.getElementsByClassName("choice-text");
 
+//to update question number/counter
+var questionCounterText = document.getElementById("questionCounterText");
+
+//to update user's score
+var scoreText = document.getElementById("scoreText");
+
 //current question variable will be an object (in {})
 var currentQuestion = {};
 
@@ -73,6 +79,10 @@ function getNewQuestion() {
     }
 
     questionsCounter++;
+    //to update what question the user is on:
+    questionCounterText.innerText = questionsCounter + "/" + maxQuestions;
+
+    
     var questionIndex = Math.floor(Math.random() * availableQuestions.length); //this is for the app to get a question from the available questions
     currentQuestion = availableQuestions[questionIndex]; //chooses which question
     question.innerText = currentQuestion.question; 
