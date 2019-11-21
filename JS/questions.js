@@ -82,7 +82,7 @@ function getNewQuestion() {
     //to update what question the user is on:
     questionCounterText.innerText = questionsCounter + "/" + maxQuestions;
 
-    
+
     var questionIndex = Math.floor(Math.random() * availableQuestions.length); //this is for the app to get a question from the available questions
     currentQuestion = availableQuestions[questionIndex]; //chooses which question
     question.innerText = currentQuestion.question; 
@@ -128,6 +128,11 @@ Array.from(choices).forEach(function (choice) {
                 classToApply = "correct"
                 console.log(classToApply);
             }
+
+            //function below will count the points:
+            if (classToApply === "correct") {
+                incrementScore(correctPoints);
+            }
         
             //we want to apply this correct/incorrect class to the html (to the whole clicked button/container element) 
         selectedChoice.parentElement.classList.add(classToApply); //add the color red/green to incorrect/correct
@@ -141,6 +146,12 @@ Array.from(choices).forEach(function (choice) {
     }); //end of choice.addEventListener
 
 }); //end of choices.forEach
+
+
+function incrementScore(num) {
+    score +=num;
+    scoreText.innerText = score;
+}; //end of incrementScore
 
 startQuiz();
 
