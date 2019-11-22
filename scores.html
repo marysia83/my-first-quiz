@@ -17,7 +17,8 @@
             <h1 id="highestScores">0</h1>
             <form>
               <input type="text" name="username" id="username" placeholder="username"/>
-              <button type="submit" class="button" id="saveScore" onclick="saveHighScore(event)">Save</button>
+              <button type="submit" class="button" id="saveScore" 
+              onclick="saveHighScore(event)" disabled>Save</button> <!--disabled will prevent the user from clicking "save" if they have not filled out username-->
             </form>
             <ul id="highScoresList"></ul>
             <a class="button" href="index.html">Test yourself to beat the highest score!</a>
@@ -25,6 +26,6 @@
 
     </div> <!--end of container-->
 
-    <script src="scores.js"></script>
+    <script src="JS/scores.js"></script>
 </body>
 </html>
