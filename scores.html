@@ -13,7 +13,12 @@
     <div class="container">
 
           <div id="highScores">
-            <h1 id="finalScore">High Scores</h1>
+            <h1>High Scores</h1>
+            <h1 id="highestScores">0</h1>
+            <form>
+              <input type="text" name="username" id="username" placeholder="username"/>
+              <button type="submit" class="button" id="saveScore" onclick="saveHighScore(event)">Save</button>
+            </form>
             <ul id="highScoresList"></ul>
             <a class="button" href="index.html">Test yourself to beat the highest score!</a>
           </div><!--end of highscorees-->
