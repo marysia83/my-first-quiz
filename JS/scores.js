@@ -7,12 +7,10 @@ finalScore.innerText = mostRecentScore;
 
 //to save the scores in local storage:
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []; //console.log will show an array. without "|| []" it will log null
-console.log(highScores);
 
 
 
     username.addEventListener("keyup", function() {
-    console.log(username.value);
     saveScoreButton.disabled = !username.value; //if there is nothing entered, set the button to disabled
 });
 
@@ -22,6 +20,10 @@ function saveHighScore(e) {
     var score = {
         score: mostRecentScore,
         name: username.value,
-    }
+    };
+
+    //add the scores:
+    highScores.push(score);
+    console.log(highScores);
 
 }
