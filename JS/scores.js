@@ -1,9 +1,9 @@
 var username = document.getElementById("username");
-var saveScoreBtn = document.getElementById("saveScore");
+var saveScoreButton = document.getElementById("saveScore");
 
     username.addEventListener("keyup", function() {
     console.log(username.value);
-    saveScoreBtn.disabled = !username.value; //if there is nothing entered, set the button to disabled
+    saveScoreButton.disabled = !username.value; //if there is nothing entered, set the button to disabled
 });
 
 function saveHighScore(e) {

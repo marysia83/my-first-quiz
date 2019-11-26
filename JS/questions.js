@@ -75,7 +75,8 @@ function getNewQuestion() {
 
     //we need this so that when the user completes all the questions, they will be directed to the finish/score page
     if (availableQuestions.length === 0 || questionsCounter >= maxQuestions) {
-        return window.location.assign(".scores.html")
+        localStorage.setItem("mostRecentScore", score);
+        return window.location.href ="scores.html"
     }
 
     questionsCounter++;
