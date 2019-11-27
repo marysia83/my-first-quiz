@@ -8,6 +8,7 @@ finalScore.innerText = mostRecentScore;
 //to save the scores in local storage:
 var highScores = JSON.parse(localStorage.getItem("highScores")) || []; //console.log will show an array. without "|| []" it will log null
 
+var MAX_HIGH_SCORES = 10;
 
 
     username.addEventListener("keyup", function() {
@@ -24,6 +25,15 @@ function saveHighScore(e) {
 
     //add the scores:
     highScores.push(score);
+
+    //to only show the 10 top scores:
+    highScores.sort(function (a,b) {
+        return b.score - a.score; //to sort highest to lowest; if b is higher than a, the put b before a score
+    })
+
+    highScores.splice(10); //cut off everything after 10th score
+
+
     console.log(highScores);
 
 }
