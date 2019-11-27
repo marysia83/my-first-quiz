@@ -1,3 +1,7 @@
+/* Acknowledgement:
+this code made with assistance of videos by James Q Quick: "Buils a Quiz App with HTML, CSS, and JavaScript". 
+Playlist URL:  https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx */
+
 //calculating user's score and saving 3 highest scores
 
 var username = document.getElementById("username");

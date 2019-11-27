@@ -1,3 +1,8 @@
+/* Acknowledgement:
+this code made with assistance of videos by James Q Quick: "Buils a Quiz App with HTML, CSS, and JavaScript". 
+Playlist URL:  https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx */
+
+
 //get a reference to the question:
 var question = document.getElementById("question");
 
